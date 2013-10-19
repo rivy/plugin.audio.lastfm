@@ -1,3 +1,6 @@
+v1.0.7
+- update language files
+
 v1.0.6
 - fix unicode encode error
 
