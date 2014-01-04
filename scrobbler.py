@@ -263,6 +263,9 @@ class MyPlayer(xbmc.Player):
         album    = self.getMusicInfoTag().getAlbum().decode("utf-8")
         title    = self.getMusicInfoTag().getTitle().decode("utf-8")
         duration = str(self.getMusicInfoTag().getDuration())
+        # get duration from xbmc.Player if the MusicInfoTag duration is invalid
+        if int(duration) <= 0:
+            duration = str(int(self.getTotalTime()))
         track    = str(self.getMusicInfoTag().getTrack())
         mbid     = '' # musicbrainz id is not yet available
         # get the track id if we're playing last fm radio
